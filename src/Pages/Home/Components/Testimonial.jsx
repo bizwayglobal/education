@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import axios from "axios";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import test1 from "../../../assets/img/user.png";
-import test2 from "../../../assets/img/user.png";
-import test3 from "../../../assets/img/user.png";
-import test4 from "../../../assets/img/user.png";
+import test1 from "../../../assets/img/user-min.png";
+import test2 from "../../../assets/img/user-min.png";
+import test3 from "../../../assets/img/user-min.png";
+import test4 from "../../../assets/img/user-min.png";
 
-const fallbackTestimonials = [
+const testimonials = [
   {
     name: "Abdul Basith",
     profession: "Class 9 Student",
@@ -39,36 +38,16 @@ const fallbackTestimonials = [
 ];
 
 const TestimonialSection = () => {
-  const [testimonials, setTestimonials] = useState([]);
-  const apiUrl = process.env.REACT_APP_API_URL;
-
-  useEffect(() => {
-    axios
-      .get(`${apiUrl}/api/testimonial/`)
-      .then((response) => {
-        const testimonialData = response.data.map((item) => ({
-          name: item.name,
-          profession: `Class ${item.std} Student`,
-          image: `${apiUrl}${item.image}`,
-          text: item.feedback,
-        }));
-        setTestimonials(testimonialData);
-      })
-      .catch((error) => {
-        console.error("API fetch failed, using fallback testimonials.", error);
-        setTestimonials(fallbackTestimonials);
-      });
-  }, [apiUrl]);
-
   return (
-    <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div className="container-xxl py-5">
       <div className="container">
         <div className="text-center">
-          <h6 className="section-title bg-white text-center text-primary px-3">
+          <h6 className="section-title bg-white text-primary px-3">
             Testimonial
           </h6>
           <h1 className="mb-5">Our Students Say!</h1>
         </div>
+
         <Swiper
           modules={[Pagination, Navigation]}
           spaceBetween={20}
@@ -86,6 +65,7 @@ const TestimonialSection = () => {
                 <img
                   className="border rounded-circle p-2 mx-auto mb-3"
                   src={testimonial.image}
+                   loading="lazy"
                   alt={testimonial.name}
                 />
                 <h5 className="mb-0">{testimonial.name}</h5>
@@ -110,7 +90,7 @@ const TestimonialSection = () => {
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            height: 320px;
+            height: 350px; /* Ensuring uniform card size */
             text-align: center;
           }
 

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import restaurant from "../../../assets/img/IQ-Logo-1.png";
-import restaurantImg1 from "../../../assets/img/DSC00386.JPG";
-import restaurantImg2 from "../../../assets/img/DSC01087.JPG";
-import restaurantImg3 from "../../../assets/img/DSC01018.JPG";
-import restaurantImg4 from "../../../assets/img/DSC00880.JPG";
+import restaurantImg1 from "../../../assets/img/DSC01018-min.JPG";
+import restaurantImg2 from "../../../assets/img/DSC01087-min.JPG";
+import restaurantImg3 from "../../../assets/img/DSC01018-min.JPG";
+import restaurantImg4 from "../../../assets/img/DSC00880-min.JPG";
 
 function IQ() {
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
@@ -60,7 +60,7 @@ function IQ() {
         >
           {/* Restaurant Image */}
           <div style={{ flex: "1" }}>
-            <img src={restaurant.image} alt={restaurant.name} style={{ width: "100%", height: "auto", borderRadius: "10px" }} />
+            <img src={restaurant.image} alt={restaurant.name}  loading="lazy" style={{ width: "100%", height: "auto", borderRadius: "10px" }} />
           </div>
 
           {/* Restaurant Details */}

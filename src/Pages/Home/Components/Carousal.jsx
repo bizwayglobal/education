@@ -29,6 +29,7 @@ const Carousel = () => {
               <img
                 className="img-fluid w-100"
                 src={slide.img}
+                loading="lazy"
                 alt="Education"
                 style={{ height: "600px", objectFit: "cover" }}
               />

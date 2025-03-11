@@ -1,74 +1,49 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
-import image1 from "../../../assets/img/DSC01018.JPG";
-import image2 from "../../../assets/img/DSC00386.JPG";
-import image3 from "../../../assets/img/DSC01087.JPG";
-import image4 from "../../../assets/img/DSC00880.JPG";
+import image1 from "../../../assets/img/DSC01018-min.JPG";
+import image2 from "../../../assets/img/DSC00386-min.JPG";
+import image3 from "../../../assets/img/DSC01087-min.JPG";
+import image4 from "../../../assets/img/DSC00880-min.JPG";
 
-const fallbackEvents = [
+const events = [
   {
     id: 1,
     name: "Football Tournament",
     image: image1,
-    description: "Our recent football tournament was a thrilling experience, filled with energy, teamwork, and sportsmanship.",
+    description:
+      "Our recent football tournament was a thrilling experience, filled with energy, teamwork, and sportsmanship.",
     location: "Calicut, Kerala",
   },
   {
     id: 2,
     name: "Study Tour",
     image: image2,
-    description: "Had a fun-filled day outside the classroom! Our recent study tour was an enriching experience for our students.",
+    description:
+      "Had a fun-filled day outside the classroom! Our recent study tour was an enriching experience for our students.",
     location: "Calicut, Kerala",
   },
   {
     id: 3,
     name: "A Powerful Motivation Session",
     image: image3,
-    description: "A truly uplifting session where students gained valuable insights, boosting their confidence and mindset for a brighter future.",
+    description:
+      "A truly uplifting session where students gained valuable insights, boosting their confidence and mindset for a brighter future.",
     location: "Calicut, Kerala",
   },
   {
     id: 4,
     name: "New Year Celebration",
     image: image4,
-    description: "We had an amazing time ringing in the New Year at IQ Academy with a fun-filled celebration",
+    description:
+      "We had an amazing time ringing in the New Year at IQ Academy with a fun-filled celebration.",
     location: "Calicut, Kerala",
   },
 ];
 
 const RecentEvents = () => {
-  const [events, setEvents] = useState([]);
-  const apiUrl = process.env.REACT_APP_API_URL;
-
-  useEffect(() => {
-    axios
-      .get(`${apiUrl}/api/recent-events/`)
-      .then((response) => {
-        const eventsData = response.data.map((event) => ({
-          img: `${apiUrl}${event.image}`,
-          title: event.name,
-          description: event.description,
-          location: event.location,
-        }));
-        setEvents(eventsData);
-      })
-      .catch((error) => {
-        console.error("API fetch failed, using fallback events.", error);
-        setEvents(
-          fallbackEvents.map((event) => ({
-            img: event.image,
-            title: event.name,
-            description: event.description,
-            location: event.location,
-          }))
-        );
-      });
-  }, [apiUrl]);
-
   const settings = {
     dots: true,
     infinite: true,
@@ -115,19 +90,23 @@ const RecentEvents = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                minHeight: "500px",
+                minHeight: "600px", // Ensure all cards are the same size
               }}
             >
+              {/* Image Section */}
               <img
-                src={event.img}
-                alt={event.title}
+                src={event.image}
+                alt={event.name}
+                 loading="lazy"
                 style={{
                   width: "100%",
-                  height: "250px",
+                  height: "300px", // Ensures uniform image size
                   objectFit: "cover",
                   borderRadius: "10px",
                 }}
               />
+
+              {/* Content Section */}
               <div
                 style={{
                   flexGrow: 1,
@@ -137,7 +116,7 @@ const RecentEvents = () => {
                   padding: "15px",
                 }}
               >
-                <h4>{event.title}</h4>
+                <h4>{event.name}</h4>
                 <p
                   style={{
                     fontSize: "14px",
@@ -156,6 +135,8 @@ const RecentEvents = () => {
                   <strong>📍 Location:</strong> {event.location}
                 </p>
               </div>
+
+              {/* Button Section */}
               <div style={{ marginTop: "auto" }}>
                 <button
                   style={{

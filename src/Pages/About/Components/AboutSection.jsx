@@ -1,7 +1,7 @@
 import React from "react";
-import aboutimg from "../../../assets/img/about3.jpg";
+import aboutimg from "../../../assets/img/about3-min.jpg";
 import vision from "../../../assets/img/vision.jpg";
-import mission from "../../../assets/img/mission.jpg";
+import mission from "../../../assets/img/mission-min.jpg";
 
 const features = [
   "Flexible Timing",
@@ -22,6 +22,7 @@ const AboutUs = () => {
             <div style={{ position: "relative", height: "100%" }}>
               <img
                 className="img-fluid"
+                loading="lazy"
                 src={aboutimg}
                 alt="About Us"
                 style={{

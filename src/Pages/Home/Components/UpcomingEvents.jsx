@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import image1 from "../../../assets/img/trip.jpg";
+import image1 from "../../../assets/img/trip-min.jpg";
 import image2 from "../../../assets/img/annual.jpg";
 import image3 from "../../../assets/img/sports.jpg";
-import image4 from "../../../assets/img/food.jpg";
+import image4 from "../../../assets/img/food-min.jpg";
 
-const fallbackEvents = [
+const events = [
   {
     id: 1,
     name: "Study Tour",
@@ -41,64 +40,24 @@ const fallbackEvents = [
     time: "06:00:00",
     location: "Calicut, Kerala",
   },
-];
+].map((event, index) => ({
+  img: event.image,
+  date: new Date(event.date).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }),
+  time:
+    event.time.slice(0, 5) +
+    " to " +
+    (parseInt(event.time.slice(0, 2)) + 2).toString().padStart(2, "0") +
+    event.time.slice(2, 5),
+  title: event.name,
+  location: event.location,
+  delay: `${index * 0.2}s`,
+}));
 
 const UpcomingEvents = () => {
-  const [events, setEvents] = useState([]);
-  const apiUrl = process.env.REACT_APP_API_URL;
-
-  useEffect(() => {
-    axios
-      .get(`${apiUrl}/api/upcoming-events/`)
-      .then((response) => {
-        const eventsData = response.data.map((event, index) => {
-          const formattedDate = new Date(event.date).toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          });
-
-          const formattedTime =
-            event.time.slice(0, 5) +
-            " to " +
-            (parseInt(event.time.slice(0, 2)) + 2).toString().padStart(2, "0") +
-            event.time.slice(2, 5);
-
-          return {
-            img: `${apiUrl}${event.image}`,
-            date: formattedDate,
-            time: formattedTime,
-            title: event.name,
-            location: event.location,
-            delay: `${index * 0.2}s`,
-          };
-        });
-
-        setEvents(eventsData);
-      })
-      .catch((error) => {
-        console.error("API fetch failed, using fallback data.", error);
-        setEvents(
-          fallbackEvents.map((event, index) => ({
-            img: event.image,
-            date: new Date(event.date).toLocaleDateString("en-US", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            }),
-            time:
-              event.time.slice(0, 5) +
-              " to " +
-              (parseInt(event.time.slice(0, 2)) + 2).toString().padStart(2, "0") +
-              event.time.slice(2, 5),
-            title: event.name,
-            location: event.location,
-            delay: `${index * 0.2}s`,
-          }))
-        );
-      });
-  }, [apiUrl]);
-
   const settings = {
     dots: true,
     infinite: true,
@@ -158,6 +117,7 @@ const UpcomingEvents = () => {
                     className="img-fluid"
                     src={event.img}
                     alt={event.title}
+                     loading="lazy"
                     style={{
                       width: "100%",
                       height: "220px",

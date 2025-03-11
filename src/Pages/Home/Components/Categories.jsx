@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import cat1 from "../../../assets/img/cat-1.jpg";
 import cat2 from "../../../assets/img/cat-2.jpg";
 import cat3 from "../../../assets/img/cat-3.jpg";
-import cat4 from "../../../assets/img/cat-4.jpg";
+import cat4 from "../../../assets/img/cat-4-min.jpg";
 
 const categories = [
   { img: cat1, title: "IQ Tuition", path: "/iq" },
@@ -38,6 +38,7 @@ const Categories = () => {
               <div className="category-card position-relative overflow-hidden rounded-3">
                 <img
                   src={cat.img}
+                   loading="lazy"
                   className="img-fluid w-100 h-100"
                   alt={cat.title}
                 />

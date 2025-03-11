@@ -12,6 +12,7 @@ const Navbar = () => {
             <img
               src={iqlogo}
               alt="eLEARNING"
+
               className="me-3"
               style={{ width: "80px", height: "auto" }}
             />

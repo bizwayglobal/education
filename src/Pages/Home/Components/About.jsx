@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import aboutimg from "../../../assets/img/abot2.jpg";
+import aboutimg from "../../../assets/img/abot2-min.jpg";
 
 const features = [
   "Flexible Timing",
@@ -26,6 +26,7 @@ const AboutUs = () => {
               <img
                 className="img-fluid position-absolute w-100 h-100"
                 src={aboutimg}
+                loading="lazy"
                 alt="About Us"
                 style={{ objectFit: "cover", borderRadius: "20px" }}
               />
