@@ -37,22 +37,24 @@ const Carousel = () => {
                 <div className="container">
                   <div className="row">
                     <div className="col-md-8 col-lg-6 text-content">
-                      <motion.h5
-                        className="text-primary text-uppercase mb-3"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1.2 }}
-                      >
-                        {slide.title}
-                      </motion.h5>
-                      <motion.h1
-                        className="display-3 text-white fw-bold"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1.2, delay: 0.3 }}
-                      >
-                        {slide.subtitle}
-                      </motion.h1>
+<motion.h5
+  className="text-primary text-uppercase mb-3 carousel-title-mobile"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1.2 }}
+>
+  {slide.title}
+</motion.h5>
+
+<motion.h1
+  className="display-3 text-white fw-bold carousel-subtitle-mobile"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1.2, delay: 0.3 }}
+>
+  {slide.subtitle}
+</motion.h1>
+
                       <motion.p
                         className="fs-5 text-white mb-4"
                         initial={{ opacity: 0, y: 20 }}
