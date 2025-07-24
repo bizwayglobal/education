@@ -26,15 +26,16 @@ const Carousel = () => {
   {`
     @media (max-width: 768px) {
       .carousel-title-mobile {
-        color: #fff !important; /* white */
+        color: #fff !important; /* Title stays pure white */
       }
       .carousel-subtitle-mobile,
       .carousel-text-mobile {
-        color: #003366 !important; /* darker blue */
+        color: #FFFFF0 !important; /* Ivory for subtitle & text */
       }
     }
   `}
 </style>
+
 
 
       <div className="header-carousel container-fluid p-0 mb-5">
