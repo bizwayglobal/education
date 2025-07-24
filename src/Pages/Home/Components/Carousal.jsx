@@ -22,19 +22,20 @@ const Carousel = () => {
   return (
     <>
       {/* ✅ Inline CSS for mobile only */}
-      <style>
-        {`
-          @media (max-width: 768px) {
-            .carousel-title-mobile {
-              color: #fff !important;
-            }
-            .carousel-subtitle-mobile,
-            .carousel-text-mobile {
-              color: #0d6efd !important; /* Bootstrap primary blue */
-            }
-          }
-        `}
-      </style>
+<style>
+  {`
+    @media (max-width: 768px) {
+      .carousel-title-mobile {
+        color: #fff !important; /* white */
+      }
+      .carousel-subtitle-mobile,
+      .carousel-text-mobile {
+        color: #003366 !important; /* darker blue */
+      }
+    }
+  `}
+</style>
+
 
       <div className="header-carousel container-fluid p-0 mb-5">
         <Slider {...settings}>
