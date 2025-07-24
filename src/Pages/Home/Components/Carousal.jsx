@@ -69,7 +69,7 @@ const Carousel = () => {
                         transition={{ duration: 1.2, delay: 0.9 }}
                       >
                         <Link to="/courses" className="btn btn-primary btn-lg me-3">
-                          Explore Courses
+                          Explore Course
                         </Link>
                         <a
                           href="https://wa.me/9544243435"
