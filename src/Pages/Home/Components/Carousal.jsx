@@ -20,11 +20,36 @@ const Carousel = () => {
   };
 
   return (
-    <div className="header-carousel container-fluid p-0 mb-5">
-      <Slider {...settings}>
-        {[{ img: carousal1, title: "Unlock Your Potential", subtitle: "Elevate Your Learning Experience", text: "Gain knowledge from expert educators and thrive in your career." },
-          { img: carousal2, title: "Learn Anytime, Anywhere", subtitle: "Your Future Starts Here", text: "Join our dynamic learning community and achieve your goals." }]
-          .map((slide, index) => (
+    <>
+      {/* ✅ Inline CSS for mobile only */}
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .carousel-title-mobile {
+              color: #fff !important;
+            }
+            .carousel-subtitle-mobile,
+            .carousel-text-mobile {
+              color: #0d6efd !important; /* Bootstrap primary blue */
+            }
+          }
+        `}
+      </style>
+
+      <div className="header-carousel container-fluid p-0 mb-5">
+        <Slider {...settings}>
+          {[{
+            img: carousal1,
+            title: "Unlock Your Potential",
+            subtitle: "Elevate Your Learning Experience",
+            text: "Gain knowledge from expert educators and thrive in your career."
+          },
+          {
+            img: carousal2,
+            title: "Learn Anytime, Anywhere",
+            subtitle: "Your Future Starts Here",
+            text: "Join our dynamic learning community and achieve your goals."
+          }].map((slide, index) => (
             <div key={index} className="slick-slide position-relative">
               <img
                 className="img-fluid w-100"
@@ -37,39 +62,40 @@ const Carousel = () => {
                 <div className="container">
                   <div className="row">
                     <div className="col-md-8 col-lg-6 text-content">
-<motion.h5
-  className="text-primary text-uppercase mb-3 carousel-title-mobile"
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1.2 }}
->
-  {slide.title}
-</motion.h5>
+                      <motion.h5
+                        className="text-primary text-uppercase mb-3 carousel-title-mobile"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.2 }}
+                      >
+                        {slide.title}
+                      </motion.h5>
 
-<motion.h1
-  className="display-3 text-white fw-bold carousel-subtitle-mobile"
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1.2, delay: 0.3 }}
->
-  {slide.subtitle}
-</motion.h1>
+                      <motion.h1
+                        className="display-3 text-white fw-bold carousel-subtitle-mobile"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.2, delay: 0.3 }}
+                      >
+                        {slide.subtitle}
+                      </motion.h1>
 
                       <motion.p
-                        className="fs-5 text-white mb-4"
+                        className="fs-5 text-white mb-4 carousel-text-mobile"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, delay: 0.6 }}
                       >
                         {slide.text}
                       </motion.p>
+
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, delay: 0.9 }}
                       >
                         <Link to="/courses" className="btn btn-primary btn-lg me-3">
-                          Explore Course
+                          Explore Courses
                         </Link>
                         <a
                           href="https://wa.me/9544243435"
@@ -86,8 +112,9 @@ const Carousel = () => {
               </div>
             </div>
           ))}
-      </Slider>
-    </div>
+        </Slider>
+      </div>
+    </>
   );
 };
 
