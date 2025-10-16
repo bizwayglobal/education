@@ -42,15 +42,27 @@ const TestimonialSection = () => {
     <div className="container-xxl py-5">
       <div className="container">
         <div className="text-center">
-          <h6 className="section-title bg-white text-primary px-3">
-            Testimonial
-          </h6>
+        <div style={{ 
+          display: "inline-block", 
+          background: "linear-gradient(135deg, #4B86C8 0%, #5b9bd5 100%)",
+          color: "white",
+          padding: "8px 24px",
+          borderRadius: "50px",
+          fontSize: "0.875rem",
+          fontWeight: "600",
+          letterSpacing: "0.5px",
+          textTransform: "uppercase",
+          marginBottom: "1rem",
+          boxShadow: "0 4px 12px rgba(75, 134, 200, 0.3)"
+        }}>
+          Testimonial
+        </div>
           <h1 className="mb-5">Our Students Say!</h1>
         </div>
 
         <Swiper
           modules={[Pagination, Navigation]}
-          spaceBetween={20}
+          spaceBetween={30}
           slidesPerView={1}
           pagination={{ clickable: true }}
           navigation
@@ -62,16 +74,21 @@ const TestimonialSection = () => {
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
               <div className="testimonial-card">
-                <img
-                  className="border rounded-circle p-2 mx-auto mb-3"
-                  src={testimonial.image}
-                   loading="lazy"
-                  alt={testimonial.name}
-                />
-                <h5 className="mb-0">{testimonial.name}</h5>
-                <p>{testimonial.profession}</p>
-                <div className="testimonial-text">
-                  <p>{testimonial.text}</p>
+                <div className="quote-icon">"</div>
+                <div className="testimonial-content">
+                  <p className="testimonial-text">{testimonial.text}</p>
+                </div>
+                <div className="testimonial-footer">
+                  <img
+                    className="testimonial-avatar"
+                    src={testimonial.image}
+                    loading="lazy"
+                    alt={testimonial.name}
+                  />
+                  <div className="testimonial-info">
+                    <h5 className="testimonial-name">{testimonial.name}</h5>
+                    <p className="testimonial-profession">{testimonial.profession}</p>
+                  </div>
                 </div>
               </div>
             </SwiperSlide>
@@ -82,33 +99,97 @@ const TestimonialSection = () => {
       <style>
         {`
           .testimonial-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 35px 30px 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            height: 350px; /* Ensuring uniform card size */
-            text-align: center;
+            height: 380px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(75, 134, 200, 0.15);
           }
 
-          .testimonial-card img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
+          .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(75, 134, 200, 0.15);
+            border-color: rgba(75, 134, 200, 0.3);
+          }
+
+          .quote-icon {
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 80px;
+            font-weight: 700;
+            color: rgba(75, 134, 200, 0.15);
+            line-height: 1;
+            font-family: Georgia, serif;
+          }
+
+          .testimonial-content {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
           }
 
           .testimonial-text {
-            flex-grow: 1;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #555;
+            font-style: italic;
+            margin: 0;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 5;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            font-size: 14px;
-            color: #555;
-            padding: 10px;
+          }
+
+          .testimonial-footer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(75, 134, 200, 0.15);
+          }
+
+          .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #4B86C8;
+            box-shadow: 0 4px 12px rgba(75, 134, 200, 0.2);
+            flex-shrink: 0;
+          }
+
+          .testimonial-info {
+            text-align: left;
+            flex-grow: 1;
+          }
+
+          .testimonial-name {
+            margin: 0;
+            font-size: 17px;
+            font-weight: 600;
+            color: #233968;
+          }
+
+          .testimonial-profession {
+            margin: 4px 0 0;
+            font-size: 13px;
+            color: #4B86C8;
+            font-weight: 500;
+          }
+
+          @media (max-width: 767px) {
+            .testimonial-card {
+              height: auto;
+              min-height: 350px;
+            }
           }
         `}
       </style>

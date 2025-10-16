@@ -1,8 +1,8 @@
 /********** Template CSS **********/
 :root {
-    --primary: #06BBCC;
+    --primary: #4B86C8;
     --light: #F0FBFC;
-    --dark: #181d38;
+    --dark: #233968;
 }
 
 .fw-medium {
@@ -453,7 +453,7 @@ body {
   }
   
   .service-item:hover .p-4 {
-    background-color: #06BBCC; /* Dark background for better visibility */
+    background-color: #4B86C8; /* Updated to light blue */
     color: white; /* Ensure text color is white for better contrast */
   }
   
@@ -491,7 +491,7 @@ body {
   }
   
   .btn-custom {
-    background: linear-gradient(135deg, #007bff, #0056b3);
+    background: linear-gradient(135deg, #4B86C8, #233968);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -505,7 +505,7 @@ body {
   }
   
   .btn-custom:hover {
-    background: #003f7f;  /* Darker blue on hover */
+    background: #233968;  /* Darker blue on hover */
     transform: scale(1.05);  /* Slight increase in size */
     
   }
@@ -595,7 +595,7 @@ body {
 .approach-paragraph:hover,
 .support-paragraph:hover,
 .feature-item:hover {
-  color: #007bff;
+  color: #4B86C8;
 }
 
 .mb-4 {
@@ -603,7 +603,7 @@ body {
 }
 
 .text-primary {
-  color: #007bff !important;
+  color: #4B86C8 !important;
 }
 
 .strong {

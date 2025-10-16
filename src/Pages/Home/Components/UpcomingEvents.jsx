@@ -59,7 +59,7 @@ const events = [
 
 const UpcomingEvents = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -78,17 +78,21 @@ const UpcomingEvents = () => {
     <div className="container-xxl py-5">
       <div className="container">
         <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h6
-            style={{
-              display: "inline-block",
-              background: "white",
-              color: "#007bff",
-              padding: "5px 10px",
-              borderRadius: "5px",
-            }}
-          >
-            Events
-          </h6>
+         <div style={{ 
+          display: "inline-block", 
+          background: "linear-gradient(135deg, #4B86C8 0%, #5b9bd5 100%)",
+          color: "white",
+          padding: "8px 24px",
+          borderRadius: "50px",
+          fontSize: "0.875rem",
+          fontWeight: "600",
+          letterSpacing: "0.5px",
+          textTransform: "uppercase",
+          marginBottom: "1rem",
+          boxShadow: "0 4px 12px rgba(75, 134, 200, 0.3)"
+        }}>
+          Events
+        </div>
           <h1 style={{ marginBottom: "30px" }}>Upcoming Events</h1>
         </div>
 
@@ -100,59 +104,78 @@ const UpcomingEvents = () => {
               key={index}
             >
               <div
-                className="event-item bg-light"
+                className="event-item"
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "space-between",
                   margin: "0 15px",
                   height: "100%",
-                  borderRadius: "10px",
-                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                  paddingBottom: "10px",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 15px rgba(0, 0, 0, 0.08)",
+                  overflow: "hidden",
+                  background: "white",
+                  transition: "all 0.3s ease",
                 }}
               >
                 <div style={{ position: "relative", overflow: "hidden" }}>
                   <img
-                    className="img-fluid"
+                    className="img-fluid event-img"
                     src={event.img}
                     alt={event.title}
-                     loading="lazy"
+                    loading="lazy"
                     style={{
                       width: "100%",
-                      height: "220px",
+                      height: "200px",
                       objectFit: "cover",
-                      borderRadius: "10px 10px 0 0",
+                      transition: "transform 0.4s ease",
                     }}
                   />
                 </div>
                 <div
                   style={{
-                    textAlign: "center",
-                    padding: "20px",
+                    padding: "24px",
                     flexGrow: "1",
                   }}
                 >
-                  <h5 style={{ marginBottom: "15px" }}>{event.title}</h5>
-                  <p style={{ marginBottom: "5px", color: "#555" }}>
-                    <i
-                      className="fa fa-calendar text-primary me-2"
-                      style={{ marginRight: "8px" }}
-                    ></i>
+                  <h5 style={{ 
+                    marginBottom: "16px",
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    color: "#1e293b"
+                  }}>
+                    {event.title}
+                  </h5>
+                  <p style={{ 
+                    marginBottom: "8px", 
+                    color: "#64748b",
+                    fontSize: "14px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px"
+                  }}>
+                    <i className="fa fa-calendar" style={{ color: "#4B86C8", width: "16px" }}></i>
                     {event.date}
                   </p>
-                  <p style={{ marginBottom: "5px", color: "#555" }}>
-                    <i
-                      className="fa fa-clock text-primary me-2"
-                      style={{ marginRight: "8px" }}
-                    ></i>
+                  <p style={{ 
+                    marginBottom: "8px", 
+                    color: "#64748b",
+                    fontSize: "14px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px"
+                  }}>
+                    <i className="fa fa-clock" style={{ color: "#4B86C8", width: "16px" }}></i>
                     {event.time}
                   </p>
-                  <p style={{ marginBottom: "15px", color: "#555" }}>
-                    <i
-                      className="fa fa-map-marker-alt text-primary me-2"
-                      style={{ marginRight: "8px" }}
-                    ></i>
+                  <p style={{ 
+                    marginBottom: "0", 
+                    color: "#64748b",
+                    fontSize: "14px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px"
+                  }}>
+                    <i className="fa fa-map-marker-alt" style={{ color: "#4B86C8", width: "16px" }}></i>
                     {event.location}
                   </p>
                 </div>
@@ -160,6 +183,29 @@ const UpcomingEvents = () => {
             </div>
           ))}
         </Slider>
+
+        <style>{`
+          .event-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(6, 187, 204, 0.15) !important;
+          }
+          
+          .event-item:hover .event-img {
+            transform: scale(1.05);
+          }
+
+          .slick-dots li button:before {
+            color: #4B86C8;
+          }
+
+          .slick-dots li.slick-active button:before {
+            color: #4B86C8;
+          }
+
+          .text-primary {
+            color: #4B86C8 !important;
+          }
+        `}</style>
       </div>
     </div>
   );

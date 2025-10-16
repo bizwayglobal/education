@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import aboutimg from "../../../assets/img/abot2-min.jpg";
 
 const features = [
-  "Flexible Timing",
-  "IT Education",
-  "Student Talent Development",
-  "Comprehensive Online Learning",
-  "Expert Faculty",
-  "Football Coaching",
+  "100+ Skill-Based Programs",
+  "100% Practical Training",
+  "Job-Guaranteed Courses",
+  "Internship-to-Job Pathway",
+  "Online & Offline Learning",
+  "Expert Industry Mentors",
 ];
 
 const AboutUs = () => {
@@ -27,7 +27,7 @@ const AboutUs = () => {
                 className="img-fluid position-absolute w-100 h-100"
                 src={aboutimg}
                 loading="lazy"
-                alt="About Us"
+                alt="About IQUE Education Hub - Skilversity"
                 style={{ objectFit: "cover", borderRadius: "20px" }}
               />
             </div>
@@ -35,19 +35,32 @@ const AboutUs = () => {
 
           {/* Content Section */}
           <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-            <h6 className="section-title bg-white text-start text-primary pe-3">
+            <div
+              style={{
+                display: "inline-block",
+                background: "linear-gradient(135deg, #4B86C8 0%, #5b9bd5 100%)",
+                color: "white",
+                padding: "8px 24px",
+                borderRadius: "50px",
+                fontSize: "0.875rem",
+                fontWeight: "600",
+                letterSpacing: "0.5px",
+                textTransform: "uppercase",
+                marginBottom: "1rem",
+                boxShadow: "0 4px 12px rgba(75, 134, 200, 0.3)",
+              }}
+            >
               About Us
-            </h6>
-            <h1 className="mb-4">IQ Education Hub</h1>
-            <p className="mb-4">
-              We are dedicated to providing high-quality education with modern
-              teaching techniques. Our mission is to create a dynamic and engaging
-              learning environment for students of all backgrounds.
-            </p>
-            <p className="mb-4">
-              We offer an innovative curriculum, expert instructors, and a seamless
-              online platform to ensure students gain knowledge and practical skills
-              to excel in their careers.
+            </div>
+            <h1 className="mb-4" style={{ color: "black" }}>
+              IQUE Education Hub - Skilversity
+            </h1>
+            <p>
+              <strong>Learn. Lead. Earn. </strong>
+              At <strong> Skilversity</strong>, education goes beyond books. You
+              don’t just study — you practice, perform, and progress. Our Global
+              Skilversity model connects <strong>talent → opportunity </strong>
+              and helps you grow from Student to CEO.
             </p>
 
             {/* Features List */}
@@ -55,7 +68,10 @@ const AboutUs = () => {
               {features.map((feature, index) => (
                 <div className="col-sm-6" key={index}>
                   <p className="mb-0">
-                    <i className="fa fa-check-circle text-primary me-2"></i>
+                    <i
+                      className="fa fa-check-circle me-2"
+                      style={{ color: "#4B86C8" }}
+                    ></i>
                     {feature}
                   </p>
                 </div>
@@ -63,7 +79,27 @@ const AboutUs = () => {
             </div>
 
             {/* Read More Button */}
-            <Link className="btn btn-primary py-3 px-5 mt-2" to="/about">
+            <Link
+              className="btn py-3 px-5 mt-2"
+              to="/about"
+              style={{
+                backgroundColor: "#4B86C8",
+                color: "white",
+                border: "none",
+                borderRadius: "8px",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = "#233968";
+                e.target.style.transform = "translateY(-2px)";
+                e.target.style.boxShadow = "0 4px 12px rgba(75, 134, 200, 0.3)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = "#4B86C8";
+                e.target.style.transform = "translateY(0)";
+                e.target.style.boxShadow = "none";
+              }}
+            >
               Learn More
             </Link>
           </div>

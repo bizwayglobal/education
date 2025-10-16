@@ -13,7 +13,7 @@ const HomePage = () => {
     <div>
         <Navbar/>
         <Carousel/>
-        <Service/>
+       <Service/>
         <AboutUs/>
         <Categories/>
         <UpcomingEvents/>

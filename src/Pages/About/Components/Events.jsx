@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 import image1 from "../../../assets/img/DSC01018-min.JPG";
 import image2 from "../../../assets/img/DSC00386-min.JPG";
 import image3 from "../../../assets/img/DSC01087-min.JPG";
@@ -58,88 +59,136 @@ const RecentEvents = () => {
   };
 
   return (
-    <div style={{ padding: "50px 0" }}>
-      <div style={{ textAlign: "center", marginBottom: "40px" }}>
-        <h6
-          style={{
-            display: "inline-block",
-            background: "white",
-            color: "#007bff",
-            padding: "5px 10px",
-            borderRadius: "5px",
-          }}
-        >
+    <div style={{ padding: "60px 20px" }}>
+      <div style={{ textAlign: "center", marginBottom: "50px" }}>
+    <div style={{ 
+          display: "inline-block", 
+          background: "linear-gradient(135deg, #4B86C8 0%, #5b9bd5 100%)",
+          color: "white",
+          padding: "8px 24px",
+          borderRadius: "50px",
+          fontSize: "0.875rem",
+          fontWeight: "600",
+          letterSpacing: "0.5px",
+          textTransform: "uppercase",
+          marginBottom: "1rem",
+          boxShadow: "0 4px 12px rgba(75, 134, 200, 0.3)"
+        }}>
           Gallery
-        </h6>
-        <h1>Recent Events</h1>
+        </div>
+        <h1 style={{ fontSize: "2.5rem", fontWeight: "700", color: "#212529", marginTop: "10px" }}>
+          Recent Events
+        </h1>
       </div>
 
-      <Slider {...settings}>
-        {events.map((event, index) => (
-          <div key={index}>
-            <div
-              style={{
-                background: "white",
-                borderRadius: "12px",
-                overflow: "hidden",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-                transition: "transform 0.3s ease-in-out",
-                textAlign: "center",
-                padding: "20px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                minHeight: "600px", // Ensure all cards are the same size
-              }}
-            >
-              {/* Image Section */}
-              <img
-                src={event.image}
-                alt={event.name}
-                loading="lazy"
-                style={{
-                  width: "100%",
-                  height: "300px", // Ensures uniform image size
-                  objectFit: "cover",
-                  borderRadius: "10px",
-                }}
-              />
-
-              {/* Content Section */}
+      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+        <Slider {...settings}>
+          {events.map((event, index) => (
+            <div key={index} style={{ padding: "0 15px" }}>
               <div
                 style={{
-                  flexGrow: 1,
+                  background: "white",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.08)",
+                  transition: "all 0.3s ease-in-out",
+                  height: "580px",
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "space-between",
-                  padding: "15px",
+                  margin: "0 10px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-8px)";
+                  e.currentTarget.style.boxShadow = "0 12px 32px rgba(0, 0, 0, 0.12)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.08)";
                 }}
               >
-                <h4>{event.name}</h4>
-                <p
-                  style={{
-                    fontSize: "14px",
-                    color: "#555",
-                    marginBottom: "10px",
-                    flexGrow: 1,
-                    overflow: "hidden",
-                    display: "-webkit-box",
-                    WebkitLineClamp: 3,
-                    WebkitBoxOrient: "vertical",
-                  }}
-                >
-                  {event.description}
-                </p>
-                <p>
-                  <strong>📍 Location:</strong> {event.location}
-                </p>
-              </div>
+                {/* Image Section with Overlay */}
+                <div style={{ position: "relative", overflow: "hidden" }}>
+                  <img
+                    src={event.image}
+                    alt={event.name}
+                    loading="lazy"
+                    style={{
+                      width: "100%",
+                      height: "280px",
+                      objectFit: "cover",
+                      transition: "transform 0.4s ease-in-out",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "scale(1.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "0",
+                      left: "0",
+                      right: "0",
+                      bottom: "0",
+                      background: "linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.3))",
+                    }}
+                  />
+                </div>
 
-            
+                {/* Content Section */}
+                <div style={{ padding: "24px", flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                  <h4
+                    style={{
+                      fontSize: "1.4rem",
+                      fontWeight: "600",
+                      color: "#212529",
+                      marginBottom: "12px",
+                      lineHeight: "1.4",
+                    }}
+                  >
+                    {event.name}
+                  </h4>
+                  
+                  <p
+                    style={{
+                      fontSize: "15px",
+                      color: "#6c757d",
+                      lineHeight: "1.6",
+                      marginBottom: "16px",
+                      flexGrow: 1,
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {event.description}
+                  </p>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      fontSize: "14px",
+                      color: "#495057",
+                      marginBottom: "20px",
+                      paddingTop: "12px",
+                      borderTop: "1px solid #e9ecef",
+                    }}
+                  >
+                    <span style={{ marginRight: "6px" }}>📍</span>
+                    <span style={{ fontWeight: "500" }}>{event.location}</span>
+                  </div>
+
+                 
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };

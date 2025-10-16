@@ -4,7 +4,7 @@ import HomePage from './Pages/Home/HomePage';
 import AboutPage from './Pages/About/AboutPage.jsx'
 import CoursePage from './Pages/Course/CoursePage.jsx';
 import ContactPage from './Pages/Contact/ContactPage.jsx';
-import IqPage from './Pages/Services/IQ/IqPage.jsx';
+
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} /> 
         <Route path="/courses" element={<CoursePage />} /> 
         <Route path="/contact" element={<ContactPage />} /> 
-        <Route path="/iq" element={<IqPage />} /> 
+        {/* <Route path="/iq" element={<IqPage />} />  */}
       </Routes>
     </Router>
     </div>
