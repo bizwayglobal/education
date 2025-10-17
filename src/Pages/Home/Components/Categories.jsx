@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import cat1 from '../../../assets/img/cat-1.jpg';

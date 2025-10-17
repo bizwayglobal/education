@@ -2,7 +2,6 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Link } from "react-router-dom";
 import image1 from "../../../assets/img/DSC01018-min.JPG";
 import image2 from "../../../assets/img/DSC00386-min.JPG";
 import image3 from "../../../assets/img/DSC01087-min.JPG";
