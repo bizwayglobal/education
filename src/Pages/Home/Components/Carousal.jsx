@@ -210,7 +210,7 @@ const Carousel = () => {
             {
               img: carousal1,
               title: "Beyond Certificates, Beyond Degrees",
-              subtitle: "Welcome to IQUE Skilversity",
+              subtitle: "Welcome to IQ Education Hub Skilversity",
               text: "Where students become interns, interns become professionals, and skills turn into careers. Join 100+ job-guaranteed programs designed for real-world success.",
             },
             {

@@ -7,7 +7,8 @@ import image1 from "../../../assets/img/DSC01018-min.JPG";
 import image2 from "../../../assets/img/DSC00386-min.JPG";
 import image3 from "../../../assets/img/DSC01087-min.JPG";
 import image4 from "../../../assets/img/DSC00880-min.JPG";
-
+import image5 from '../../../assets/img/quiz.jpg';
+import image6 from '../../../assets/img/deepvali.jpg';
 const events = [
   {
     id: 1,
@@ -39,6 +40,22 @@ const events = [
     image: image4,
     description:
       "We had an amazing time ringing in the New Year at IQ Academy with a fun-filled celebration.",
+    location: "Calicut, Kerala",
+  },
+  {
+    id: 5,
+    name: " Quiz Competition",
+    image: image6,
+    description:
+      "Students showcased their knowledge and quick thinking in our exciting quiz competition. A day full of learning and fun!",
+    location: "Calicut, Kerala",
+  },
+  {
+    id: 6,
+    name: "Deepavali Celebration",
+    image: image5,
+    description:
+      "We celebrated Deepavali with vibrant lights, sweets, and joy all around spreading happiness and festive spirit across the campus.",
     location: "Calicut, Kerala",
   },
 ];
